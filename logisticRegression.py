@@ -51,24 +51,25 @@ def sigmoid(z):
 w = np.zeros((X.shape[0],1))
 b = 0 
 m = X.shape[1]
-learning_rate = 0.00001
+learning_rate = 0.009
 
-#single loop of gradient decent
+#for loop of gradient decent
 
-#forward prop
-A = sigmoid(np.dot(w.T, X) + b)
-# a metric of our cost
-cost = (- 1 / m) * np.sum(Y * np.log(A) + (1 - Y) * (np.log(1 - A)))
-
-#backward prop derivative of A
-dz = A - Y
-dw = (1/m) * np.dot(X,dz.T)
-db = np.sum(dz)/m
-
-#updating the wirghts
-w = w - (learning_rate * dw)
-b = b - (learning_rate * db)
-print(cost)
+for i in range(1000):
+    #forward prop
+    A = sigmoid(np.dot(w.T, X) + b)
+    # a metric of our cost
+    cost = (- 1 / m) * np.sum(Y * np.log(A) + (1 - Y) * (np.log(1 - A)))
+    
+    #backward prop derivative of A
+    dz = A - Y
+    dw = (1/m) * np.dot(X,dz.T)
+    db = np.sum(dz)/m
+    
+    #updating the wirghts
+    w = w - (learning_rate * dw)
+    b = b - (learning_rate * db)
+    print(cost)
 
     
     
