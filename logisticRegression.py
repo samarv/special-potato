@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 #load dataset
-dataset = pd.read_csv("/Users/samar/Documents/pythonwd/special-potato/AXISBANK.csv")
+dataset = pd.read_csv("AXISBANK.csv")
 
 
 #Clean dataset
@@ -26,7 +26,8 @@ dataset["p1"] = np.where(dataset["p1"] > 0, 1,0)
 
 
 #cleaning out dates and dataframe
-X = dataset[["4. close"]]
+X = dataset[["1. open","2. high", "3. low" ,"4. close", "5. volume"]]
+
 
 
 #IMP - changing it to (nx,m) size as nx = number of features and m is no. of datapoints
